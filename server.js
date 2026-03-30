@@ -1,6 +1,7 @@
+const dotenv = require('dotenv').config();
 const express = require('express');
 const app = express();
-const port = 4000;
+const port = process.env.PORT;
 
 app.get('/', (req, res) => {
   res.send('Hola Andres, bienvenido a tu nuevo servidor');
@@ -9,3 +10,5 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
   console.log(`Estoy escuchando en el puerto ${port}`);
 });
+
+console.log(process.env);
