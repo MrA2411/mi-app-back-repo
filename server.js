@@ -1,14 +1,24 @@
-const dotenv = require('dotenv').config();
-const express = require('express');
+import dotenv from 'dotenv';
+import express from 'express';
+
+//config
+dotenv.config();
+
+//variables globales
 const app = express();
-const port = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8080;
 
+//middlewares
+app.use(express.json());
+
+//endpoints
 app.get('/', (req, res) => {
-  res.send('Hola Andres, bienvenido a tu nuevo servidor');
+  res.send('Hola Andres, soy tu nuevo servidor 🚀');
 });
 
-app.listen(port, () => {
-  console.log(`Estoy escuchando en el puerto ${port}`);
+//listener
+app.listen(PORT, () => {
+  console.log(
+    `Andres, estoy escuchando tus peticiones en el puerto ${PORT} 😎`,
+  );
 });
-
-console.log(process.env);
